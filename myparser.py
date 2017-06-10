@@ -3,12 +3,14 @@ from nltk.tag import pos_tag
 from google import search
 print ("\n\n\tEnter a string - ",end='')
 string=raw_input()
+words=string.split()
 tokens=pos_tag(string.split())
 propernouns=[word for word,pos in tokens if pos=='NNP']
-for propernoun in propernouns:
+n=len(propernouns)
+for i in range(n):
    itemno=1
-   print ("\n\n\tThe search results for [[["+str(propernoun)+"]]] are...")
-   for url in search(propernoun,stop=1):
+   print ("\n\n\tThe search results for [[["+str(propernouns[i])+"]]] are...")
+   for url in search(propernouns[i],stop=1):
         print ("\t"+str(itemno)+". "+url)
         itemno+=1
 print ("\n\n")
