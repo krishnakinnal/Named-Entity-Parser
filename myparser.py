@@ -16,16 +16,20 @@ if n==0:
 
 i=0
 
+
 while i<n:
+
    itemno=1
-#   print (propernouns[i+1],words.index(propernouns[i+1]),propernouns[i], words.index(propernouns[i])+1)
+   count=0
+   searchstring=str(propernouns[i])
+
    try:
-      if words.index(propernouns[i+1])==words.index(propernouns[i])+1:
-         searchstring=str(propernouns[i])+" "+str(propernouns[i+1])
-         i+=2
-      else:
-         searchstring=str(propernouns[i])
-         i+=1
+      while words.index(propernouns[i+count+1])==words.index(propernouns[i])+count+1:
+         searchstring+=" "+str(propernouns[i+count+1])
+         count+=1
+         if i+count+1>=n:
+             break
+      i+=count+1
    except:
       searchstring=propernouns[i]
       i+=1
